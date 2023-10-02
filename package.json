@@ -4,13 +4,17 @@
   "description": "POC for QA network logs",
   "main": "index.js",
   "scripts": {
-    "cypress:open":"cypress open",
+    "cypress:open": "cypress open",
     "cypress:run": "cypress run"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "cypress": "^13.3.0",
+    "eslint": "^8.50.0",
+    "eslint-plugin-cypress": "^2.15.1",
+    "husky": "^8.0.3",
+    "prettier": "^3.0.3",
     "typescript": "^5.2.2"
   }
 }
