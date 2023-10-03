@@ -1,7 +1,10 @@
 describe("my tests", () => {
   before(() => {
     // start recording
-    cy.recordHar();
+    cy.recordHar({
+      transform: "../support/harTransformer",
+      content: false,
+    });
   });
 
   after(() => {
