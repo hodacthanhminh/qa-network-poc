@@ -9,7 +9,7 @@ const harTransformer = (entry: Entry) => ({
   method: entry.request.method,
   "request-body-size": entry.request.bodySize,
   duration: entry.time,
-  url: decodeURI(entry.request.url),
+  url: entry.request.url,
   "response-status": entry.response.status,
   "resource-type": entry._resourceType,
   "content-type": entry.response.content.mimeType,
