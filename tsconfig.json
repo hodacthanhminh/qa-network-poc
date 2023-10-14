@@ -1,11 +1,12 @@
 {
   "compilerOptions": {
     "target": "ES5",
-    "module": "CommonJS",
+    "module": "ES6",
     "lib": ["ES5", "DOM"],
     "strict": true,
     "types": ["cypress", "node"],
     "noEmit": true
   },
-  "include": ["**/*.ts"]
+  "include": ["**/*.ts"],
+  "exclude": ["**/*.js"]
 }
