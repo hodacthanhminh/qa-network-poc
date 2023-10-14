@@ -1,9 +1,9 @@
-import * as fs from "fs";
+const { readFileSync, writeFileSync } = require("fs");
 
 const harFilePath = "./har.cy.har";
 const CSVOutputPath = `./csv/${new Date().getTime()}.csv`;
 
-const rawHarContent = fs.readFileSync(harFilePath, "utf8");
+const rawHarContent = readFileSync(harFilePath, "utf8");
 const {
   log: { entries },
 } = JSON.parse(rawHarContent);
@@ -34,4 +34,4 @@ const convertToCSV = (arr) => {
 
 const csvContent = convertToCSV(entries);
 
-fs.writeFileSync(CSVOutputPath, csvContent, "utf8");
+writeFileSync(CSVOutputPath, csvContent, "utf8");

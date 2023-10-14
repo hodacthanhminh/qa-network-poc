@@ -18,25 +18,25 @@ const formatString = (str: string) => {
 
 const harTransformer = (entry: Entry) => {
   const extractHarEntry = {
-    "timings-blocked": entry.timings.blocked,
-    "timings-dns": entry.timings.dns,
-    "timings-ssl": entry.timings.ssl,
-    "timings-connect": entry.timings.connect,
-    "timings-send": entry.timings.comment,
-    "timings-wait": entry.timings.wait,
-    "timings-receive": entry.timings.receive,
+    timings_blocked: entry.timings.blocked,
+    timings_dns: entry.timings.dns,
+    timings_ssl: entry.timings.ssl,
+    timings_connect: entry.timings.connect,
+    timings_send: entry.timings.comment,
+    timings_wait: entry.timings.wait,
+    timings_receive: entry.timings.receive,
     method: entry.request.method,
-    "request-body-size": entry.request.bodySize,
+    request_body_size: entry.request.bodySize,
     duration: entry.time,
     url: entry.request.url,
-    "response-status": entry.response.status,
-    "resource-type": entry._resourceType,
-    "content-type": entry.response.content.mimeType,
-    "response-body-size": entry.response.bodySize,
+    response_status: entry.response.status,
+    resource_type: entry._resourceType,
+    content_type: entry.response.content.mimeType,
+    response_body_size: entry.response.bodySize,
   };
 
-  const standardizeHarObject = () =>
-    Object.entries(extractHarEntry).reduce((formattedObject, [key, plainValue]) => {
+  const standardizeHarObject = Object.entries(extractHarEntry).reduce(
+    (formattedObject, [key, plainValue]) => {
       switch (true) {
         case isNaN(plainValue):
           return {
@@ -59,9 +59,11 @@ const harTransformer = (entry: Entry) => {
             [key]: plainValue,
           };
       }
-    }, {});
+    },
+    {},
+  );
 
-  return standardizeHarObject();
+  return standardizeHarObject;
 };
 
 export default harTransformer;
