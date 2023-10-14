@@ -1,13 +1,21 @@
 describe("my tests", () => {
-  before(() => {
+  beforeEach(() => {
     // start recording
-    cy.recordHar();
+    cy.recordHar({
+      transform: "../support/harTransformer.ts",
+      content: false,
+    });
   });
 
-  after(() => {
-    // save the HAR file
-    cy.saveHar();
-  });
+
+  afterEach(()=> {
+    function generateHarFileName () {
+      const currentTestName = Cypress.currentTest.title;
+      return currentTestName.replace(/ /g, "-").toLowerCase()
+    } 
+    
+    cy.saveHar({ fileName: generateHarFileName(), outDir: Cypress.env("HAR_REPORT_DIR")  });
+  })
 
   it("Visits Command Get", () => {
     cy.visit("https://docs.cypress.io/api/commands/get");

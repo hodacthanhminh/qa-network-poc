@@ -12,6 +12,7 @@
   "license": "ISC",
   "devDependencies": {
     "@neuralegion/cypress-har-generator": "^5.16.4",
+    "@types/har-format": "^1.2.13",
     "@typescript-eslint/eslint-plugin": "^6.7.3",
     "@typescript-eslint/parser": "^6.7.3",
     "cypress": "^13.3.0",
